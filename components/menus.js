@@ -4,21 +4,33 @@ import { FormattedMessage } from 'react-intl';
 const { Item } = Menu;
 
 export default function Menus(props) {
+	const handleClick = (e) => {
+		props.setCurrentMenu(e.key);
+	};
+
 	return (
-		<Menu theme='dark' mode='horizontal' defaultSelectedKeys={['2']}>
-			<Item key='1'>
+		<Menu onClick={handleClick} theme='dark' mode='horizontal' defaultSelectedKeys={['index']}>
+			<Item key='index'>
 				<Link href='/'>
 					<a>
-						<FormattedMessage id='hello' />
+						<FormattedMessage id='index' />
 					</a>
 				</Link>
 			</Item>
-			<Item key='2'>
+			<Item key='about'>
 				<Link href='/about'>
-					<a>about</a>
+					<a>
+						<FormattedMessage id='about' />
+					</a>
 				</Link>
 			</Item>
-			<Item key='3'>nav 3</Item>
+			<Item key='other'>
+				<Link href='/'>
+					<a>
+						<FormattedMessage id='other' />
+					</a>
+				</Link>
+			</Item>
 		</Menu>
 	);
 }

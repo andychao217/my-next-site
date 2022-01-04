@@ -13,15 +13,15 @@ const localeMessage = {
 
 export default function MyApp({ Component, pageProps }) {
 	const [currentLocale, setCurrentLocale] = useState('zh-CN');
-	console.log('currentLocale', currentLocale);
+	const [currentMenu, setCurrentMenu] = useState('index');
 	return (
 		<>
 			<IntlProvider locale={currentLocale} messages={localeMessage[currentLocale]}>
 				<div style={{ height: '100vh' }}>
 					<Layout>
-						<HeaderLayout setCurrentLocale={setCurrentLocale} />
+						<HeaderLayout setCurrentLocale={setCurrentLocale} currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
 						<Content style={{ padding: '0 50px' }}>
-							<Breadcrumbs />
+							<Breadcrumbs currentMenu={currentMenu} />
 							<div style={{ padding: 24, minHeight: 'calc(100vh - 188px)' }}>
 								<Component {...pageProps} />
 							</div>
