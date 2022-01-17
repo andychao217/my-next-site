@@ -3,6 +3,9 @@ const en_US = {
 	index: 'Index',
 	about: 'About Me',
 	other: 'Other',
+	timeLine: 'Time Line',
+	portfolios: 'Portfolios',
+	contact: 'Contact Me',
 	//... ...
 };
 export default en_US;

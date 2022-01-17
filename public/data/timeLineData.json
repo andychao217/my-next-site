@@ -1,0 +1,46 @@
+[
+	{
+		"title": "educationTitle",
+		"color": "green",
+		"icon": "read",
+		"experience": [
+			{
+				"startTime": "2006-9",
+				"endTime": "2010-6",
+				"title": "bachelorTitle",
+				"content": "bachelorContent"
+			},
+			{
+				"startTime": "2010-9",
+				"endTime": "2013-6",
+				"title": "masterTitle",
+				"content": "masterContent"
+			},
+			{
+				"startTime": "2015-9",
+				"endTime": "tillNow",
+				"title": "selfLearningTitle",
+				"content": "selfLearningContent"
+			}
+		]
+	},
+	{
+		"title": "workTitle",
+		"color": "red",
+		"icon": "desktop",
+		"experience": [
+			{
+				"startTime": "2017-4",
+				"endTime": "2020-4",
+				"title": "workSPONTitle",
+				"content": "workSPONContent"
+			},
+			{
+				"startTime": "2020-5",
+				"endTime": "tillNow",
+				"title": "workYssTitle",
+				"content": "workYssContent"
+			}
+		]
+	}
+]

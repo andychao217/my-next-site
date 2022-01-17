@@ -8,29 +8,37 @@ export default function Menus(props) {
 		props.setCurrentMenu(e.key);
 	};
 
+	const router = [
+		{
+			name: 'about',
+			route: '/about',
+		},
+		{
+			name: 'timeLine',
+			route: '/timeLine',
+		},
+		{
+			name: 'portfolios',
+			route: '/portfolios',
+		},
+		{
+			name: 'contact',
+			route: '/contact',
+		},
+	];
 	return (
 		<Menu onClick={handleClick} theme='dark' mode='horizontal' defaultSelectedKeys={['index']}>
-			<Item key='index'>
-				<Link href='/'>
-					<a>
-						<FormattedMessage id='index' />
-					</a>
-				</Link>
-			</Item>
-			<Item key='about'>
-				<Link href='/about'>
-					<a>
-						<FormattedMessage id='about' />
-					</a>
-				</Link>
-			</Item>
-			<Item key='other'>
-				<Link href='/'>
-					<a>
-						<FormattedMessage id='other' />
-					</a>
-				</Link>
-			</Item>
+			{router.map((item) => {
+				return (
+					<Item key={item.name}>
+						<Link href={item.route}>
+							<a>
+								<FormattedMessage id={item.name} />
+							</a>
+						</Link>
+					</Item>
+				);
+			})}
 		</Menu>
 	);
 }
