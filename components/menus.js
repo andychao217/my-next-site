@@ -27,7 +27,7 @@ export default function Menus(props) {
 		},
 	];
 	return (
-		<Menu onClick={handleClick} theme='dark' mode='horizontal' defaultSelectedKeys={['index']}>
+		<Menu onClick={handleClick} theme='dark' mode='horizontal' defaultSelectedKeys={['about']}>
 			{router.map((item) => {
 				return (
 					<Item key={item.name}>

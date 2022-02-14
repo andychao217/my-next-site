@@ -49,7 +49,7 @@ export default function LanguageChanger(props) {
 					</span>
 				}
 			>
-				你好世界!
+				你好, 世界!
 			</Menu.Item>
 			<Menu.Item
 				key='en-US'

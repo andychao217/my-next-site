@@ -1,0 +1,11 @@
+.linkIcon {
+	margin-right: 10px;
+	color: gray;
+	font-size: 24px;
+}
+
+.linkIcon:hover,
+.linkIcon:focus,
+.linkIcon:active {
+	color: #0070f3;
+}

@@ -1,4 +1,5 @@
 const en_US = {
+	title: 'Welcome to my world',
 	hello: 'Hello!',
 	index: 'Index',
 	about: 'About Me',
@@ -6,6 +7,7 @@ const en_US = {
 	timeLine: 'Time Line',
 	portfolios: 'Portfolios',
 	contact: 'Contact Me',
+	resume: 'Download Resume',
 	//... ...
 };
 export default en_US;

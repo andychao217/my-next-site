@@ -6,7 +6,7 @@ const { Header, Content, Footer } = Layout;
 export default function Home() {
 	return (
 		<>
-			<div>hdhdhdh</div>
+			<div>contact</div>
 		</>
 	);
 }
