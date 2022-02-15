@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Dropdown, Button, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
@@ -32,6 +32,7 @@ export default function LanguageChanger(props) {
 			defaultLanguage = 'en-US';
 		}
 		props.setCurrentLocale(defaultLanguage);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	function handleMenuClick(e) {
@@ -66,7 +67,7 @@ export default function LanguageChanger(props) {
 
 	return (
 		<Dropdown overlay={menu}>
-			<Button type={'primary'}>
+			<Button type={'primary'} style={{ margin: '0px 10px' }}>
 				<FormattedMessage id='hello' />
 				<span style={{ marginLeft: '10px' }}>
 					<DownOutlined />

@@ -1,10 +1,13 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import Head from 'next/head';
 import { IntlProvider } from 'react-intl'; /* react-intl imports */
 import { useRouter } from 'next/router';
 import { Layout } from 'antd';
 import Breadcrumbs from '../components/breadcrumbs';
 import HeaderLayout from '../components/headerLayout';
 import FooterLayout from '../components/footerLayout';
+import TabBarMobile from '../components/tabBarMobile';
+import NavBarMobile from '../components/navBarMobile';
 import zh_CN from '../locales/zh-CN'; // import defined messages in Chinese
 import en_US from '../locales/en-US'; // import defined messages in English
 const { Content } = Layout;
@@ -16,35 +19,75 @@ const localeMessage = {
 export default function MyApp({ Component, pageProps }) {
 	const [currentLocale, setCurrentLocale] = useState('zh-CN');
 	const [currentMenu, setCurrentMenu] = useState('about');
+	const [isMobilePlatform, setIsMobilePlatform] = useState(false);
 	const router = useRouter();
 
 	useEffect(() => {
 		router.push('about');
+		isMobile();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	useEffect(() => {
-		document.title = currentLocale === 'zh-CN' ? zh_CN.title : en_US.title;
-	}, [currentLocale]);
+	function isMobile() {
+		let res = false;
+		if (/android/i.test(navigator.userAgent) || /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+			res = true;
+		}
+		setIsMobilePlatform(res);
+	}
 
 	return (
 		<Fragment>
 			<IntlProvider locale={currentLocale} messages={localeMessage[currentLocale]}>
 				<div style={{ height: '100vh' }}>
-					<Layout>
-						<HeaderLayout
-							currentLocale={currentLocale}
-							setCurrentLocale={setCurrentLocale}
-							currentMenu={currentMenu}
-							setCurrentMenu={setCurrentMenu}
-						/>
-						<Content style={{ padding: '0 50px' }}>
-							<Breadcrumbs currentMenu={currentMenu} />
-							<div style={{ padding: 24, minHeight: 'calc(100vh - 188px)' }}>
+					<Head>
+						<title>{localeMessage[currentLocale]['title']}</title>
+						<meta charSet='utf-8' />
+						<meta name='description' content={localeMessage[currentLocale]['title']} />
+						<meta
+							name='keywords'
+							content='HTML,JavaScript,React,Vue.js,Coder,Programme,Software,Front-End,Engineer,Andy Chao,赵庆,andychao217'
+						></meta>
+						<meta name='viewport' content='width=device-width, initial-scale=1.0'></meta>
+						<meta name='apple-mobile-web-app-capable' content='yes' />
+						<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
+						<meta name='apple-mobile-web-app-title' content='Andy Chao'></meta>
+						<meta name='robots' content='all' />
+						<meta name='author' content='Andy Chao' />
+						<meta httpEquiv='Pragma' content='no-cache'></meta>
+						<meta httpEquiv='Cache-Control' content='no-siteapp' />
+						<link rel='icon' href='/favicon.ico' />
+					</Head>
+					{isMobilePlatform ? (
+						<Layout>
+							<NavBarMobile
+								currentLocale={currentLocale}
+								setCurrentLocale={setCurrentLocale}
+								currentMenu={currentMenu}
+								setCurrentMenu={setCurrentMenu}
+							/>
+							<div style={{ padding: '10px', width: '100vw', maxHeight: 'calc(100vh - 95px)', marginTop: '45px', overflowY: 'auto' }}>
 								<Component {...pageProps} />
 							</div>
-						</Content>
-						<FooterLayout currentLocale={currentLocale} />
-					</Layout>
+							<TabBarMobile currentLocale={currentLocale} currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
+						</Layout>
+					) : (
+						<Layout>
+							<HeaderLayout
+								currentLocale={currentLocale}
+								setCurrentLocale={setCurrentLocale}
+								currentMenu={currentMenu}
+								setCurrentMenu={setCurrentMenu}
+							/>
+							<Content style={{ padding: '0 50px', marginTop: '66px' }}>
+								<Breadcrumbs currentMenu={currentMenu} />
+								<div style={{ padding: 24, minHeight: 'calc(100vh - 188px)' }}>
+									<Component {...pageProps} />
+								</div>
+							</Content>
+							<FooterLayout currentLocale={currentLocale} />
+						</Layout>
+					)}
 				</div>
 			</IntlProvider>
 		</Fragment>

@@ -5,7 +5,7 @@ import { DownloadOutlined } from '@ant-design/icons';
 import { FormattedMessage } from 'react-intl';
 import Menus from './menus';
 import LanguageChanger from './languageChanger';
-import Profilepic from '../public/images/profilepic.jpg';
+import FullScreenController from './fullScreenController';
 const { Header } = Layout;
 
 export default function HeaderLayout(props) {
@@ -14,16 +14,17 @@ export default function HeaderLayout(props) {
 		window.open(URL);
 	}
 	return (
-		<Header>
+		<Header style={{ width: '100vw', position: 'fixed', zIndex: 99 }}>
 			<div style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
-				<Avatar src={<Image src={Profilepic} alt='Avatar picture' width={32} height={32} />} />
+				<Avatar src={<Image src={'/images/profilepic.jpg'} alt='Avatar picture' width={32} height={32} />} />
 				<div style={{ flexGrow: 1, marginLeft: '10px' }}>
 					<Menus {...props} />
 				</div>
-				<div style={{ display: 'inline-block', width: '135px' }}>
+				<div style={{ display: 'inline-block', width: 'auto' }}>
+					<FullScreenController {...props} />
 					<LanguageChanger {...props} />
 					<Tooltip placement='bottom' title={<FormattedMessage id={'resume'} />}>
-						<Button onClick={downloadResume} style={{ marginLeft: '10px' }} type='primary' shape='circle' icon={<DownloadOutlined />} />
+						<Button onClick={downloadResume} type='primary' shape='circle' icon={<DownloadOutlined />} />
 					</Tooltip>
 				</div>
 			</div>

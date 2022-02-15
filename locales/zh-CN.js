@@ -8,6 +8,8 @@ const zh_CN = {
 	portfolios: '作品集',
 	contact: '联系我',
 	resume: '下载简历',
+	fullScreen: '进入全屏',
+	fullScreenExit: '退出全屏',
 	//... ...
 };
 export default zh_CN;

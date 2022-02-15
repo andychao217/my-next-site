@@ -8,6 +8,8 @@ const en_US = {
 	portfolios: 'Portfolios',
 	contact: 'Contact Me',
 	resume: 'Download Resume',
+	fullScreen: 'Enter Full Screen',
+	fullScreenExit: 'Exit Full Screen',
 	//... ...
 };
 export default en_US;
