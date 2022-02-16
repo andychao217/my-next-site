@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Dropdown, Button, Menu } from 'antd';
+import { ActionSheet, Button as ButtonMobile } from 'antd-mobile';
 import { DownOutlined } from '@ant-design/icons';
 
 export default function LanguageChanger(props) {
+	const [actionsVisible, setActionsVisible] = useState(false);
+
 	useEffect(() => {
 		//  浏览器默认语言
 		const navigatorLanguage = navigator.language.toLowerCase() || '';
@@ -16,7 +19,6 @@ export default function LanguageChanger(props) {
 			navigatorLanguage === 'zh-hans-cn'
 		) {
 			defaultLanguage = 'zh-CN';
-			//  繁体中文：台湾、香港、澳门
 		} else if (
 			navigatorLanguage === 'zh-tw' ||
 			navigatorLanguage === 'zh-hk' ||
@@ -27,7 +29,6 @@ export default function LanguageChanger(props) {
 			navigatorLanguage === 'zh-hant-cn'
 		) {
 			defaultLanguage = 'zh-CN';
-			//  英文：其他
 		} else {
 			defaultLanguage = 'en-US';
 		}
@@ -40,34 +41,52 @@ export default function LanguageChanger(props) {
 		props.setCurrentLocale(newLocale);
 	}
 
-	const menu = (
-		<Menu onClick={handleMenuClick}>
-			<Menu.Item
-				key='zh-CN'
-				icon={
-					<span role='img' aria-label='China' style={{ color: 'red' }}>
-						🇨🇳
+	const lanOptions = [
+		{ value: 'zh-CN', label: '你好', color: '#ff3141', abbr: 'CN' },
+		{ value: 'en-US', label: 'Hello', color: '#1677ff', abbr: 'En' },
+	];
+	const actions = lanOptions.map((item) => {
+		return {
+			key: item.value,
+			text: (
+				<span>
+					<span key={item.value} style={{ color: item.color, fontSize: '12px' }}>
+						{item.abbr}
 					</span>
-				}
-			>
-				你好, 世界!
-			</Menu.Item>
-			<Menu.Item
-				key='en-US'
-				icon={
-					<span role='img' aria-label='China' style={{ color: 'skyblue' }}>
-						🇺🇸
-					</span>
-				}
-			>
-				Hello world!
-			</Menu.Item>
-		</Menu>
-	);
+				</span>
+			),
+		};
+	});
 
-	return (
+	const menu = () => {
+		const menus = lanOptions.map((item) => {
+			return (
+				<Menu.Item key={item.value} icon={<span style={{ color: item.color, fontSize: '12px' }}>{item.abbr}</span>}>
+					{item.label}
+				</Menu.Item>
+			);
+		});
+		return <Menu onClick={handleMenuClick}>{menus}</Menu>;
+	};
+
+	return props.isMobilePlatform ? (
+		<Fragment>
+			<ButtonMobile fill='none' color={props.currentLocale === 'en-US' ? 'primary' : 'danger'} onClick={() => setActionsVisible(true)}>
+				<FormattedMessage id='hello' />
+			</ButtonMobile>
+			<ActionSheet
+				visible={actionsVisible}
+				actions={actions}
+				onAction={(action) => {
+					props.setCurrentLocale(action.key);
+					setActionsVisible(false);
+				}}
+				onClose={() => setActionsVisible(false)}
+			/>
+		</Fragment>
+	) : (
 		<Dropdown overlay={menu}>
-			<Button type={'primary'} style={{ margin: '0px 10px' }}>
+			<Button type={props.currentLocale === 'en-US' ? 'primary' : 'danger'} style={{ margin: '0px 10px' }}>
 				<FormattedMessage id='hello' />
 				<span style={{ marginLeft: '10px' }}>
 					<DownOutlined />

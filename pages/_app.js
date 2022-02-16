@@ -65,6 +65,7 @@ export default function MyApp({ Component, pageProps }) {
 								setCurrentLocale={setCurrentLocale}
 								currentMenu={currentMenu}
 								setCurrentMenu={setCurrentMenu}
+								isMobilePlatform={isMobilePlatform}
 							/>
 							<div style={{ padding: '10px', width: '100vw', maxHeight: 'calc(100vh - 95px)', marginTop: '45px', overflowY: 'auto' }}>
 								<Component {...pageProps} />
@@ -78,6 +79,7 @@ export default function MyApp({ Component, pageProps }) {
 								setCurrentLocale={setCurrentLocale}
 								currentMenu={currentMenu}
 								setCurrentMenu={setCurrentMenu}
+								isMobilePlatform={isMobilePlatform}
 							/>
 							<Content style={{ padding: '0 50px', marginTop: '66px' }}>
 								<Breadcrumbs currentMenu={currentMenu} />

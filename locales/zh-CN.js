@@ -1,6 +1,6 @@
 const zh_CN = {
 	title: '欢迎来到我的世界',
-	hello: '你好!',
+	hello: '你好',
 	index: '首页',
 	about: '关于我',
 	other: '其他',

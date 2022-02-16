@@ -24,7 +24,12 @@ export default function HeaderLayout(props) {
 					<FullScreenController {...props} />
 					<LanguageChanger {...props} />
 					<Tooltip placement='bottom' title={<FormattedMessage id={'resume'} />}>
-						<Button onClick={downloadResume} type='primary' shape='circle' icon={<DownloadOutlined />} />
+						<Button
+							onClick={downloadResume}
+							type={props.currentLocale === 'en-US' ? 'primary' : 'danger'}
+							shape='circle'
+							icon={<DownloadOutlined />}
+						/>
 					</Tooltip>
 				</div>
 			</div>

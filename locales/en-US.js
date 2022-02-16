@@ -1,6 +1,6 @@
 const en_US = {
 	title: 'Welcome to my world',
-	hello: 'Hello!',
+	hello: 'Hello',
 	index: 'Index',
 	about: 'About Me',
 	other: 'Other',
