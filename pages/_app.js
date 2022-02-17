@@ -8,23 +8,33 @@ import HeaderLayout from '../components/headerLayout';
 import FooterLayout from '../components/footerLayout';
 import TabBarMobile from '../components/tabBarMobile';
 import NavBarMobile from '../components/navBarMobile';
-import zh_CN from '../locales/zh-CN'; // import defined messages in Chinese
-import en_US from '../locales/en-US'; // import defined messages in English
-const { Content } = Layout;
-const localeMessage = {
-	'en-US': en_US,
-	'zh-CN': zh_CN,
+import langData from '/public/data/lang.json';
+const initialLocaleMessage = {
+	'en-US': {
+		hello: '你好',
+		title: 'Welcome to my world',
+		about: 'About me',
+		timeLine: 'Timeline',
+		portfolios: 'Portfolios',
+		contact: 'Get in touch',
+	},
+	'zh-CN': { hello: 'Hello', title: '欢迎来到我的世界', about: '关于我', timeLine: '时间线', portfolios: '作品集', contact: '联系我' },
 };
-
+const { Content } = Layout;
 export default function MyApp({ Component, pageProps }) {
 	const [currentLocale, setCurrentLocale] = useState('zh-CN');
 	const [currentMenu, setCurrentMenu] = useState('about');
 	const [isMobilePlatform, setIsMobilePlatform] = useState(false);
+	const [localeMessage, setLocaleMessage] = useState(initialLocaleMessage);
 	const router = useRouter();
-
 	useEffect(() => {
 		router.push('about');
 		isMobile();
+		const getLangData = async () => {
+			let res = await langData;
+			setLocaleMessage({ ...JSON.parse(JSON.stringify(res)) });
+		};
+		getLangData();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -52,6 +62,7 @@ export default function MyApp({ Component, pageProps }) {
 						<meta name='apple-mobile-web-app-capable' content='yes' />
 						<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
 						<meta name='apple-mobile-web-app-title' content='Andy Chao'></meta>
+						<link rel='apple-touch-icon' href='/images/profilepic.jpg' />
 						<meta name='robots' content='all' />
 						<meta name='author' content='Andy Chao' />
 						<meta httpEquiv='Pragma' content='no-cache'></meta>
@@ -60,17 +71,19 @@ export default function MyApp({ Component, pageProps }) {
 					</Head>
 					{isMobilePlatform ? (
 						<Layout>
-							<NavBarMobile
-								currentLocale={currentLocale}
-								setCurrentLocale={setCurrentLocale}
-								currentMenu={currentMenu}
-								setCurrentMenu={setCurrentMenu}
-								isMobilePlatform={isMobilePlatform}
-							/>
-							<div style={{ padding: '10px', width: '100vw', maxHeight: 'calc(100vh - 95px)', marginTop: '45px', overflowY: 'auto' }}>
-								<Component {...pageProps} />
+							<div style={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
+								<NavBarMobile
+									currentLocale={currentLocale}
+									setCurrentLocale={setCurrentLocale}
+									currentMenu={currentMenu}
+									setCurrentMenu={setCurrentMenu}
+									isMobilePlatform={isMobilePlatform}
+								/>
+								<div style={{ flexGrow: '2' }}>
+									<Component {...pageProps} />
+								</div>
+								<TabBarMobile currentLocale={currentLocale} currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
 							</div>
-							<TabBarMobile currentLocale={currentLocale} currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
 						</Layout>
 					) : (
 						<Layout>

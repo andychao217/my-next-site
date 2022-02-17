@@ -31,7 +31,7 @@ export default function TabBarMobile(props) {
 	];
 	return (
 		<Fragment>
-			<div style={{ position: 'fixed', bottom: 0, width: '100vw', borderTop: '1px solid lightgray' }}>
+			<div style={{ borderTop: '1px solid lightgray', background: 'white' }}>
 				<TabBar
 					activeKey={activeKey}
 					onChange={(value) => {

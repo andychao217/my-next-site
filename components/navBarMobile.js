@@ -11,7 +11,7 @@ export default function NavBarMobile(props) {
 
 	return (
 		<Fragment>
-			<div style={{ position: 'fixed', top: 0, width: '100vw', borderBottom: '1px solid lightgray', zIndex: 99 }}>
+			<div style={{ width: '100vw', borderBottom: '1px solid lightgray', background: 'white' }}>
 				<NavBar
 					back={null}
 					left={<Avatar src={'/images/profilepic.jpg'} style={{ '--size': '32px' }} onClick={downloadResume} />}
