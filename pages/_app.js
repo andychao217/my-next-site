@@ -80,7 +80,7 @@ export default function MyApp({ Component, pageProps }) {
 									isMobilePlatform={isMobilePlatform}
 								/>
 								<div style={{ flexGrow: '2' }}>
-									<Component {...pageProps} />
+									<Component {...pageProps} isMobilePlatform={isMobilePlatform} />
 								</div>
 								<TabBarMobile currentLocale={currentLocale} currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
 							</div>
@@ -96,8 +96,8 @@ export default function MyApp({ Component, pageProps }) {
 							/>
 							<Content style={{ padding: '0 50px', marginTop: '66px' }}>
 								<Breadcrumbs currentMenu={currentMenu} />
-								<div style={{ padding: 24, minHeight: 'calc(100vh - 188px)' }}>
-									<Component {...pageProps} />
+								<div style={{ padding: '0px', minHeight: 'calc(100vh - 188px)' }}>
+									<Component {...pageProps} isMobilePlatform={isMobilePlatform} />
 								</div>
 							</Content>
 							<FooterLayout currentLocale={currentLocale} />
