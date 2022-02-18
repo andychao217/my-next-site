@@ -9,6 +9,7 @@ import FooterLayout from '../components/footerLayout';
 import TabBarMobile from '../components/tabBarMobile';
 import NavBarMobile from '../components/navBarMobile';
 import langData from '/public/data/lang.json';
+
 const initialLocaleMessage = {
 	'en-US': {
 		hello: '你好',

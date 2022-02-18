@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Swiper, Card, Tag, Space, ImageViewer } from 'antd-mobile';
 import { FormattedMessage } from 'react-intl';
-import { Image as AntdImage, List, Avatar, Button } from 'antd';
+import { Image as AntdImage, List, Avatar } from 'antd';
 import Image from 'next/image';
 import styles from '../styles/Pages.module.css';
 import portfolioData from '/public/data/portfolioData.json';
@@ -24,8 +24,10 @@ export default function Portfolios(props) {
 		for (let i = item.length; i > 0; i--) {
 			imageUrls.push(`/portfolios/${item.name}/${i}.png`);
 		}
-		setImageUrls(imageUrls);
-		setVisible(true);
+		if (imageUrls.length) {
+			setImageUrls(imageUrls);
+			setVisible(true);
+		}
 	};
 
 	return (
@@ -109,7 +111,6 @@ export default function Portfolios(props) {
 											</Tag>
 										</Space>
 									))}
-									className={styles.listItem}
 								>
 									<List.Item.Meta
 										avatar={
@@ -117,14 +118,12 @@ export default function Portfolios(props) {
 												shape='square'
 												size='32'
 												src={<Image src={`/portfolios/${item.name}.svg`} layout='fill' alt={item.name} />}
+												onClick={() => handleViewImage(item)}
+												style={{ cursor: 'pointer' }}
 											/>
 										}
 										title={
-											<a
-												onClick={() => {
-													handleViewImage(item);
-												}}
-											>
+											<a onClick={() => handleViewImage(item)}>
 												<FormattedMessage id={item.title} />
 											</a>
 										}
