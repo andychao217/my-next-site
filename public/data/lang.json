@@ -2,14 +2,14 @@
 	"zh-CN": {
 		"title": "欢迎来到我的世界",
 		"hello": "你好",
-		"zhimaCreditTxt": "芝麻信用",
-		"dedaoCreditTxt": "得到学分",
+		"zhimaCreditText": "芝麻信用",
+		"dedaoCreditText": "得到学分",
 		"zhimaCredit": "813",
 		"dedaoCredit": "821",
 		"helloWhoAmI": "你好, 我叫赵庆, 一名热爱生活的程序员、前端开发工程师",
 		"ability": "技能值",
 		"introTitle": "个人特点",
-		"introTxt": [
+		"introText": [
 			"• 我时刻关注行业动态、具有较强的动手和学习能力",
 			"• 对新事物新技术充满好奇心, 时刻保持钻研精神",
 			"• 具有良好的沟通及协调能力、逻辑分析能力",
@@ -32,7 +32,7 @@
 		"iAmHere": "我在这儿",
 		"fullscreen": "全屏",
 		"fullscreenExit": "退出全屏",
-		"resumeTxt": "简历",
+		"resumeText": "简历",
 		"download": "下载",
 		"contactTitle": "保持联系",
 		"mailMe": "如果我有什么能够帮到你的话, 请给我发邮件: ",
@@ -103,14 +103,14 @@
 	"en-US": {
 		"title": "Welcome to my world",
 		"hello": "Hello",
-		"zhimaCreditTxt": "Zhima Credits",
-		"dedaoCreditTxt": "Dedao Credits",
+		"zhimaCreditText": "Zhima Credits",
+		"dedaoCreditText": "Dedao Credits",
 		"zhimaCredit": "813",
 		"dedaoCredit": "821",
 		"helloWhoAmI": "Hello, I'm Andy Chao, a front-end engineer who enjoys the pleasures of life",
 		"ability": "Ability",
 		"introTitle": "Characteristics",
-		"introTxt": [
+		"introText": [
 			"• I'm a curious software engineer with creative mind and willing to accept challenges.",
 			"• I made the WeChat Applet Available for users within just 14 days(Including server, domain, coding(front & back end), UI design, etc.)",
 			"• I also learnt the Go language from scratch in 10 days to build a useful web server",
@@ -131,7 +131,7 @@
 		"iAmHere": "I'm here",
 		"fullscreen": "Fullscreen",
 		"fullscreenExit": "Exit Fullscreen",
-		"resumeTxt": "Resume",
+		"resumeText": "Resume",
 		"download": "Download",
 		"contactTitle": "Get in touch",
 		"mailMe": "Is there anything I can do to help you, please let me know and mail me:",
@@ -177,25 +177,12 @@
 		"selfLearningTitle": "Front-end software development",
 		"selfLearningContent": "Learnt front-end software technologies by myself, and now I'm still keep learning related technologies in-depth.",
 		"workSPONTitle": "Changsha SPON Communication Technology Co., Ltd. - Software Engineer",
-		"workSPONContent": [
-			"• Full in charge of the company's Web front-end related works, including the construction of front-end framework, and the preparation and maintenance of specific code of related projects (WEB front-end and related back-end such as PHP, Go, etc);",
-			"• Development of xc9000 intercom and broadcast integrated management system (front-end and PHP back-end)",
-			"• Development of customer service WeChat applet (publish the program online within 14 days, including the construction of server and the programming of front and back end)",
-			"• Embedded web program development for multiple devices (front end and PHP back end)",
-			"• Development of multiple management platforms (front-end and Go, PHP and other back-end server programs)",
-			"• Development of intelligent audio analysis management platform (Web and QT C++ program)",
-			"• Finished a product QR code generation software for internal use of the company within just 2 days"
-		],
+		"workSPONContent": "• Full in charge of the company's Web front-end related works, including the construction of front-end framework, and the preparation and maintenance of specific code of related projects (WEB front-end and related back-end such as PHP, Go, etc)\n• Development of xc9000 intercom and broadcast integrated management system (front-end and PHP back-end)\n• Development of customer service WeChat applet (publish the program online within 14 days, including the construction of server and the programming of front and back end)\n• Embedded web program development for multiple devices (front end and PHP back end)\n• Development of multiple management platforms (front-end and Go, PHP and other back-end server programs)\n• Development of intelligent audio analysis management platform (Web and QT C++ program)\n• Finished a product QR code generation software for internal use of the company within just 2 days",
 		"sendSuccess": "Mail sent",
 		"sendSuccessContent": "Thank you so much, I'll get in touch with you ASAP.",
 		"sendFailed": "Failed to send the mail",
 		"workYssTitle": "Shenzhen YSS Information Technology Co., Ltd - Front-end Engineer",
-		"workYssContent": [
-			"• Full in charge of the web front-end related works of the Ping'an project team under the wealth management department of the company, including the construction of front-end framework, and the preparation and maintenance of specific code of related projects",
-			"• Led the development of a number of related project pages",
-			"• Skillful use of React.js technology stack to develop front-end projects",
-			"• Participated in the preparation and improvement of the company's custom front-end components library"
-		],
+		"workYssContent": "• Full in charge of the web front-end related works of the Ping'an project team under the wealth management department of the company, including the construction of front-end framework, and the preparation and maintenance of specific code of related projects• Led the development of a number of related project pages\n• Skillful use of React.js technology stack to develop front-end projects\n• Participated in the preparation and improvement of the company's custom front-end components library",
 		"Yss": "Investment transaction System",
 		"YssDesc": "Over the counter financial trading system React.js front-end project"
 	}

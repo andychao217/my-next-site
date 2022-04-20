@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Swiper, Card, Tag, Space, ImageViewer } from 'antd-mobile';
 import { FormattedMessage } from 'react-intl';
-import { Image as AntdImage, List, Avatar } from 'antd';
+import { Image as AntdImage, List, Avatar, Card as CardDesktop } from 'antd';
 import Image from 'next/image';
 import styles from '../styles/Pages.module.css';
 import portfolioData from '/public/data/portfolioData.json';
@@ -9,9 +9,9 @@ import portfolioData from '/public/data/portfolioData.json';
 const colors = ['#26324D', '#4A5671', '#99A9BF', '#24D6FF', '#027AFF', '#20CE66', '#F7BA2B', '#FF4040', '#58A7F4'];
 
 export async function getStaticProps(ctx) {
-	const fileContent = await portfolioData;
+	const portfolioFileContent = await portfolioData;
 	return {
-		props: { fileContent },
+		props: { portfolioFileContent },
 	};
 }
 
@@ -30,6 +30,10 @@ export default function Portfolios(props) {
 		}
 	};
 
+	const gridStyle = {
+		width: '100%',
+	};
+
 	return (
 		<Fragment>
 			{props.isMobilePlatform ? (
@@ -43,7 +47,7 @@ export default function Portfolios(props) {
 							}}
 							defaultIndex={0}
 						>
-							{props.fileContent.map((item) => {
+							{props.portfolioFileContent.map((item) => {
 								return (
 									<Swiper.Item key={item.name}>
 										<div style={{ height: 'calc(100vh - 115px)', padding: '10px 0px 10px 10px' }}>
@@ -97,42 +101,44 @@ export default function Portfolios(props) {
 				</Fragment>
 			) : (
 				<Fragment>
-					<Card>
+					<CardDesktop>
 						<List
 							itemLayout='vertical'
 							size='large'
-							dataSource={props.fileContent}
+							dataSource={props.portfolioFileContent}
 							renderItem={(item) => (
-								<List.Item
-									actions={item.tags.map((tag, index) => (
-										<Space key={tag}>
-											<Tag color={colors[index]} key={tag}>
-												{tag}
-											</Tag>
-										</Space>
-									))}
-								>
-									<List.Item.Meta
-										avatar={
-											<Avatar
-												shape='square'
-												size='32'
-												src={<Image src={`/portfolios/${item.name}.svg`} layout='fill' alt={item.name} />}
-												onClick={() => handleViewImage(item)}
-												style={{ cursor: 'pointer' }}
-											/>
-										}
-										title={
-											<a onClick={() => handleViewImage(item)}>
-												<FormattedMessage id={item.title} />
-											</a>
-										}
-										description={<FormattedMessage id={item.Desc} />}
-									/>
-								</List.Item>
+								<CardDesktop.Grid style={gridStyle}>
+									<List.Item
+										actions={item.tags.map((tag, index) => (
+											<Space key={tag}>
+												<Tag color={colors[index]} key={tag}>
+													{tag}
+												</Tag>
+											</Space>
+										))}
+									>
+										<List.Item.Meta
+											avatar={
+												<Avatar
+													shape='square'
+													size='32'
+													src={<Image src={`/portfolios/${item.name}.svg`} layout='fill' alt={item.name} />}
+													onClick={() => handleViewImage(item)}
+													style={{ cursor: 'pointer' }}
+												/>
+											}
+											title={
+												<a onClick={() => handleViewImage(item)}>
+													<FormattedMessage id={item.title} />
+												</a>
+											}
+											description={<FormattedMessage id={item.Desc} />}
+										/>
+									</List.Item>
+								</CardDesktop.Grid>
 							)}
 						/>
-					</Card>
+					</CardDesktop>
 					<div style={{ display: 'none' }}>
 						<AntdImage.PreviewGroup preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}>
 							{imageUrls.map((image, index) => (

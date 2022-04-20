@@ -14,8 +14,16 @@ export default function HeaderLayout(props) {
 		window.open(URL);
 	}
 	return (
-		<Header style={{ width: '100vw', position: 'fixed', zIndex: 99 }}>
-			<div style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
+		<Header style={{ width: '100vw', position: 'fixed', zIndex: 99, padding: '0px' }}>
+			<div
+				style={{
+					padding: '0px 20px',
+					width: '100vw',
+					display: 'flex',
+					alignItems: 'center',
+					backgroundColor: props.currentLocale === 'en-US' ? '#001529' : '#fff',
+				}}
+			>
 				<Avatar src={<Image src={'/images/profilepic.jpg'} alt='Avatar picture' width={32} height={32} />} />
 				<div style={{ flexGrow: 1, marginLeft: '10px' }}>
 					<Menus {...props} />
@@ -26,7 +34,8 @@ export default function HeaderLayout(props) {
 					<Tooltip placement='bottom' title={<FormattedMessage id={'resume'} />}>
 						<Button
 							onClick={downloadResume}
-							type={props.currentLocale === 'en-US' ? 'primary' : 'danger'}
+							type={props.currentLocale === 'en-US' ? 'primary' : ''}
+							danger={props.currentLocale === 'en-US' ? false : true}
 							shape='circle'
 							icon={<DownloadOutlined />}
 						/>

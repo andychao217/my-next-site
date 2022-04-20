@@ -3,21 +3,22 @@
 		"title": "educationTitle",
 		"color": "green",
 		"icon": "read",
+		"key": "education",
 		"experience": [
 			{
-				"startTime": "2006-9",
-				"endTime": "2010-6",
+				"startTime": "2006-09",
+				"endTime": "2010-06",
 				"title": "bachelorTitle",
 				"content": "bachelorContent"
 			},
 			{
-				"startTime": "2010-9",
-				"endTime": "2013-6",
+				"startTime": "2010-09",
+				"endTime": "2013-06",
 				"title": "masterTitle",
 				"content": "masterContent"
 			},
 			{
-				"startTime": "2015-9",
+				"startTime": "2015-09",
 				"endTime": "tillNow",
 				"title": "selfLearningTitle",
 				"content": "selfLearningContent"
@@ -28,15 +29,16 @@
 		"title": "workTitle",
 		"color": "red",
 		"icon": "desktop",
+		"key": "work",
 		"experience": [
 			{
-				"startTime": "2017-4",
-				"endTime": "2020-4",
+				"startTime": "2017-04",
+				"endTime": "2020-04",
 				"title": "workSPONTitle",
 				"content": "workSPONContent"
 			},
 			{
-				"startTime": "2020-5",
+				"startTime": "2020-05",
 				"endTime": "tillNow",
 				"title": "workYssTitle",
 				"content": "workYssContent"

@@ -46,7 +46,8 @@ export default function FullScreenController(props) {
 			<Button
 				size='middle'
 				onClick={fullScreenControl}
-				type={props.currentLocale === 'en-US' ? 'primary' : 'danger'}
+				type={props.currentLocale === 'en-US' ? 'primary' : ''}
+				danger={props.currentLocale === 'en-US' ? false : true}
 				shape='circle'
 				icon={isFullScreen ? <FullscreenExitOutlined /> : <FullscreenOutlined />}
 			/>

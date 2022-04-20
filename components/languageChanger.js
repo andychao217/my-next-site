@@ -86,7 +86,11 @@ export default function LanguageChanger(props) {
 		</Fragment>
 	) : (
 		<Dropdown overlay={menu}>
-			<Button type={props.currentLocale === 'en-US' ? 'primary' : 'danger'} style={{ margin: '0px 10px' }}>
+			<Button
+				type={props.currentLocale === 'en-US' ? 'primary' : ''}
+				danger={props.currentLocale === 'en-US' ? false : true}
+				style={{ margin: '0px 10px' }}
+			>
 				<FormattedMessage id='hello' />
 				<span style={{ marginLeft: '10px' }}>
 					<DownOutlined />

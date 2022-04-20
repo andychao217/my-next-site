@@ -97,7 +97,7 @@ export default function MyApp({ Component, pageProps }) {
 							/>
 							<Content style={{ padding: '0 50px', marginTop: '66px' }}>
 								<Breadcrumbs currentMenu={currentMenu} />
-								<div style={{ padding: '0px', minHeight: 'calc(100vh - 188px)' }}>
+								<div style={{ padding: '0px' }}>
 									<Component {...pageProps} isMobilePlatform={isMobilePlatform} />
 								</div>
 							</Content>

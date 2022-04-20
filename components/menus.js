@@ -27,7 +27,13 @@ export default function Menus(props) {
 		},
 	];
 	return (
-		<Menu onClick={handleClick} theme='dark' mode='horizontal' defaultSelectedKeys={['about']}>
+		<Menu
+			onClick={handleClick}
+			theme={props.currentLocale === 'en-US' ? 'dark' : 'light'}
+			mode='horizontal'
+			defaultSelectedKeys={['about']}
+			color={props.currentLocale === 'en-US' ? 'primary' : 'danger'}
+		>
 			{router.map((item) => {
 				return (
 					<Item key={item.name}>
