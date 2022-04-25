@@ -15,6 +15,7 @@ export async function getStaticProps(ctx) {
 }
 
 export default function Home(props) {
+	console.log('workSPONContent25132', <FormattedMessage id={'workSPONTitle'} />);
 	return (
 		<Fragment>
 			{props.isMobilePlatform ? (
@@ -42,8 +43,10 @@ export default function Home(props) {
 												}
 												return (
 													<Timeline.Item label={label} key={expIndex}>
-														<Card title={<FormattedMessage id={exp.title} />} bordered={false}>
-															<FormattedMessage id={exp.content} />
+														<Card title={<FormattedMessage id={exp.title} />} bordered={true}>
+															<p style={{ whiteSpace: 'pre-wrap', textAlign: 'left' }}>
+																<FormattedMessage id={exp.content} />
+															</p>
 														</Card>
 													</Timeline.Item>
 												);

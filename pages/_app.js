@@ -18,6 +18,7 @@ const initialLocaleMessage = {
 		timeLine: 'Timeline',
 		portfolios: 'Portfolios',
 		contact: 'Get in touch',
+		workSPONContent: [],
 	},
 	'zh-CN': { hello: 'Hello', title: '欢迎来到我的世界', about: '关于我', timeLine: '时间线', portfolios: '作品集', contact: '联系我' },
 };
