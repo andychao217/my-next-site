@@ -51,7 +51,7 @@ export default function MyApp({ Component, pageProps }) {
 	return (
 		<Fragment>
 			<IntlProvider locale={currentLocale} messages={localeMessage[currentLocale]}>
-				<div style={{ height: '100vh' }}>
+				<div style={{ height: '100vh', backgroundColor: '#f0f2f5' }}>
 					<Head>
 						<title>{localeMessage[currentLocale]['title']}</title>
 						<meta charSet='utf-8' />
