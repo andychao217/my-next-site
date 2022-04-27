@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Card } from 'antd';
-import { NoticeBar, Space, Swiper, Dropdown, List, Tag, Form, Button, Input } from 'antd-mobile';
+import { NoticeBar, Space, Swiper, Dropdown, List, Tag, Form, Button, Input, WaterMark } from 'antd-mobile';
 import { ExclamationCircleOutline, DownlandOutline } from 'antd-mobile-icons';
 import { FormattedMessage } from 'react-intl';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
@@ -54,7 +54,14 @@ export default function About(props) {
 		<Fragment>
 			{props.isMobilePlatform ? (
 				<Fragment>
-					<div style={{ height: 'calc(100vh - 115px)', padding: '0px 0px 10px 0px', backgroundColor: '#fff', overflowY: 'auto' }}>
+					<div
+						style={{
+							height: 'calc(100vh - 115px)',
+							padding: '0px 0px 10px 0px',
+							backgroundColor: '#fff',
+							overflowY: 'auto',
+						}}
+					>
 						<NoticeBar
 							content={
 								<span>
@@ -134,7 +141,7 @@ export default function About(props) {
 							</Dropdown.Item>
 						</Dropdown>
 						{activeKey === 'Characteristics' ? (
-							<Space direction={'vertical'} style={{ padding: '5px 20px' }}>
+							<Space direction={'vertical'} style={{ padding: '5px 20px', position: 'relative', minHeight: 'calc(100vh - 310px)' }}>
 								<p style={{ whiteSpace: 'pre-wrap', textAlign: 'justify', fontSize: '13px' }}>
 									<FormattedMessage id={'introText'} />
 								</p>
@@ -143,29 +150,33 @@ export default function About(props) {
 										<FormattedMessage id={'hobbies'} />
 									</Tag>
 								</Space>
+								<WaterMark content={'Andy Chao'} gapX={10} gapY={10} fullPage={false} />
 							</Space>
 						) : activeKey === 'Ability' ? (
 							<ReactEChartsCore echarts={echarts} option={options} notMerge={true} lazyUpdate={true} />
 						) : (
-							<Form
-								name='form'
-								footer={
-									<Button block color='primary' size='large' onClick={downloadResume}>
-										<DownlandOutline /> <FormattedMessage id={'resumeText'} />
-									</Button>
-								}
-							>
-								<Form.Header>基础用法</Form.Header>
-								<Form.Item name='name' label={<FormattedMessage id={'nameInput'} />} initialValue={'赵庆'}>
-									<Input readOnly type={'text'} />
-								</Form.Item>
-								<Form.Item name='email' label={<FormattedMessage id={'emailInput'} />} initialValue={'andychao217@qq.com'}>
-									<Input readOnly type={'email'} />
-								</Form.Item>
-								<Form.Item name='phone' label={<FormattedMessage id={'phoneInput'} />} initialValue={'(+86)13548691522'}>
-									<Input readOnly />
-								</Form.Item>
-							</Form>
+							<div style={{ position: 'relative' }}>
+								<Form
+									name='form'
+									footer={
+										<Button block color='primary' size='large' onClick={downloadResume}>
+											<DownlandOutline /> <FormattedMessage id={'resumeText'} />
+										</Button>
+									}
+								>
+									<Form.Header>基础用法</Form.Header>
+									<Form.Item name='name' label={<FormattedMessage id={'nameInput'} />} initialValue={'赵庆'}>
+										<Input readOnly type={'text'} />
+									</Form.Item>
+									<Form.Item name='email' label={<FormattedMessage id={'emailInput'} />} initialValue={'andychao217@qq.com'}>
+										<Input readOnly type={'email'} />
+									</Form.Item>
+									<Form.Item name='phone' label={<FormattedMessage id={'phoneInput'} />} initialValue={'(+86)13548691522'}>
+										<Input readOnly />
+									</Form.Item>
+								</Form>
+								<WaterMark content={'Andy Chao'} gapX={10} gapY={10} fullPage={false} />
+							</div>
 						)}
 					</div>
 				</Fragment>

@@ -1,5 +1,6 @@
 {
 	"zh-CN": {
+		"myName": "赵庆",
 		"title": "欢迎来到我的世界",
 		"hello": "你好",
 		"zhimaCreditText": "芝麻信用",
@@ -79,6 +80,7 @@
 		"YssDesc": "金融场外投资交易系统React.js前端工程"
 	},
 	"en-US": {
+		"myName": "Andy Chao",
 		"title": "Welcome to my world",
 		"hello": "Hello",
 		"zhimaCreditText": "Zhima Credits",
