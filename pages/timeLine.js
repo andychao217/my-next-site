@@ -44,12 +44,12 @@ export default function Home(props) {
 												return (
 													<Step
 														title={<FormattedMessage id={exp.title} />}
-														status={'finish'}
+														status={expIndex === timeRange.experience.length - 1 ? 'process' : 'finish'}
 														key={expIndex}
 														description={
 															<Space block direction='vertical'>
 																<div>{timeLabel}</div>
-																<p style={{ whiteSpace: 'pre-wrap', textAlign: 'left' }}>
+																<p style={{ whiteSpace: 'pre-wrap', textAlign: 'justify' }}>
 																	<FormattedMessage id={exp.content} />
 																</p>
 															</Space>

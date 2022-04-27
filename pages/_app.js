@@ -82,7 +82,7 @@ export default function MyApp({ Component, pageProps }) {
 									isMobilePlatform={isMobilePlatform}
 								/>
 								<div style={{ flexGrow: '2' }}>
-									<Component {...pageProps} isMobilePlatform={isMobilePlatform} />
+									<Component {...pageProps} currentLocale={currentLocale} isMobilePlatform={isMobilePlatform} />
 								</div>
 								<TabBarMobile currentLocale={currentLocale} currentMenu={currentMenu} setCurrentMenu={setCurrentMenu} />
 							</div>
