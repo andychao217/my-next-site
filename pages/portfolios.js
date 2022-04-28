@@ -5,13 +5,13 @@ import { Image as AntdImage, List, Avatar, Card as CardDesktop } from 'antd';
 import Image from 'next/image';
 import styles from '../styles/Pages.module.css';
 import portfolioData from '/public/data/portfolioData.json';
-
-const colors = ['#26324D', '#4A5671', '#99A9BF', '#24D6FF', '#027AFF', '#20CE66', '#F7BA2B', '#FF4040', '#58A7F4'];
+import colorData from '/public/data/colorList.json';
 
 export async function getStaticProps(ctx) {
 	const portfolioFileContent = await portfolioData;
+	const colorFileContent = await colorData;
 	return {
-		props: { portfolioFileContent },
+		props: { portfolioFileContent, colorFileContent },
 	};
 }
 
@@ -76,7 +76,7 @@ export default function Portfolios(props) {
 													<div style={{ position: 'absolute', bottom: '30px', paddingRight: '10px' }}>
 														<Space wrap>
 															{item.tags.map((tag, index) => (
-																<Tag color={colors[index]} key={tag}>
+																<Tag color={props.colorFileContent.at(index)} key={tag}>
 																	{tag}
 																</Tag>
 															))}
@@ -111,7 +111,7 @@ export default function Portfolios(props) {
 									<List.Item
 										actions={item.tags.map((tag, index) => (
 											<Space key={tag}>
-												<Tag color={colors[index]} key={tag}>
+												<Tag color={props.colorFileContent.at(index)} key={tag}>
 													{tag}
 												</Tag>
 											</Space>
