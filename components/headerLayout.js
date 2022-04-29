@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Avatar, Layout, Tooltip, Button } from 'antd';
+import { Avatar, Layout, Tooltip, Button, Tag } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 import { FormattedMessage } from 'react-intl';
 import Menus from './menus';

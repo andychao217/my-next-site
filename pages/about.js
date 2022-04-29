@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Card, Progress, Divider, Avatar, Row, Col } from 'antd';
-import Image from 'next/image';
+import { Card, Progress, Descriptions } from 'antd';
 import { NoticeBar, Space, Swiper, Dropdown, List, Tag, Form, Button, Input, WaterMark } from 'antd-mobile';
 import { ExclamationCircleOutline, DownlandOutline } from 'antd-mobile-icons';
 import { FormattedMessage } from 'react-intl';
@@ -217,31 +216,25 @@ export default function About(props) {
 			) : (
 				<Fragment>
 					<Card style={{ borderRadius: '5px' }}>
-						<Divider orientation='left'>
-							<FormattedMessage id={'introTitle'} />
-						</Divider>
-						<p style={{ whiteSpace: 'pre-wrap', textAlign: 'justify', fontSize: '13px', paddingLeft: '55px' }}>
-							<FormattedMessage id={'introText'} />
-						</p>
-						<Divider orientation='left'>
-							<FormattedMessage id={'ability'} />
-						</Divider>
-						<ReactEChartsCore echarts={echarts} option={options} notMerge={true} lazyUpdate={true} style={{ height: '600px' }} />
-						<Divider orientation='left'>
-							<FormattedMessage id={'personalInfo'} />
-						</Divider>
-						<div style={{ paddingLeft: '55px' }}>
-							<Row gutter={16}>
-								<Col flex='128px'>
-									<Avatar
-										src={<Image src={'/images/profilepic.jpg'} alt='Avatar picture' width={128} height={128} />}
-										shape='square'
-										size={128}
-									/>
-								</Col>
-								<Col flex='auto'>{getPersonalInfoForm()}</Col>
-							</Row>
-						</div>
+						<Descriptions bordered size='middle' title={<FormattedMessage id={'personalInfo'} />}>
+							<Descriptions.Item label={<FormattedMessage id={'nameInput'} />} span={3}>
+								<a onClick={downloadResume}>{props.contactInfoFileContent?.name}</a>
+							</Descriptions.Item>
+							<Descriptions.Item label={<FormattedMessage id={'emailInput'} />} span={1}>
+								{props.contactInfoFileContent?.mail}
+							</Descriptions.Item>
+							<Descriptions.Item label={<FormattedMessage id={'phoneInput'} />} span={2}>
+								{props.contactInfoFileContent?.phone}
+							</Descriptions.Item>
+							<Descriptions.Item label={<FormattedMessage id={'introTitle'} />} span={3}>
+								<p style={{ whiteSpace: 'pre-wrap', textAlign: 'justify', fontSize: '13px' }}>
+									<FormattedMessage id={'introText'} />
+								</p>
+							</Descriptions.Item>
+							<Descriptions.Item label={<FormattedMessage id={'ability'} />} span={3}>
+								<ReactEChartsCore echarts={echarts} option={options} notMerge={true} lazyUpdate={true} style={{ height: '600px' }} />
+							</Descriptions.Item>
+						</Descriptions>
 					</Card>
 				</Fragment>
 			)}

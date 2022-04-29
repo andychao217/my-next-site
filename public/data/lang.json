@@ -1,5 +1,9 @@
 {
 	"zh-CN": {
+		"required": "不能为空",
+		"wrongFormat": "数据格式错误",
+		"minStringLength": "数据最小长度为: ",
+		"placeholder": "请输入",
 		"myName": "赵庆",
 		"title": "欢迎来到我的世界",
 		"hello": "你好",
@@ -80,6 +84,10 @@
 		"YssDesc": "金融场外投资交易系统React.js前端工程"
 	},
 	"en-US": {
+		"required": "This is required",
+		"wrongFormat": "Wrong data format",
+		"minStringLength": "The minimum data length is: ",
+		"placeholder": "Please input ",
 		"myName": "Andy Chao",
 		"title": "Welcome to my world",
 		"hello": "Hello",

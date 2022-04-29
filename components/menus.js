@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Menu } from 'antd';
 import { FormattedMessage } from 'react-intl';
+import { MailOutline, PicturesOutline, UnorderedListOutline, UserOutline } from 'antd-mobile-icons';
 const { Item } = Menu;
 
 export default function Menus(props) {
@@ -12,18 +13,22 @@ export default function Menus(props) {
 		{
 			name: 'about',
 			route: '/about',
+			icon: <UserOutline />,
 		},
 		{
 			name: 'timeLine',
 			route: '/timeLine',
+			icon: <UnorderedListOutline />,
 		},
 		{
 			name: 'portfolios',
 			route: '/portfolios',
+			icon: <PicturesOutline />,
 		},
 		{
 			name: 'contact',
 			route: '/contact',
+			icon: <MailOutline />,
 		},
 	];
 	return (

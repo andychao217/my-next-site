@@ -7,35 +7,6 @@ import { DownOutlined } from '@ant-design/icons';
 export default function LanguageChanger(props) {
 	const [actionsVisible, setActionsVisible] = useState(false);
 
-	useEffect(() => {
-		//  浏览器默认语言
-		const navigatorLanguage = navigator.language.toLowerCase() || '';
-		let defaultLanguage = '';
-		if (
-			navigatorLanguage === 'zh-cn' ||
-			navigatorLanguage === 'zh-chs' ||
-			navigatorLanguage === 'zh-chs-cn' ||
-			navigatorLanguage === 'zh-hans' ||
-			navigatorLanguage === 'zh-hans-cn'
-		) {
-			defaultLanguage = 'zh-CN';
-		} else if (
-			navigatorLanguage === 'zh-tw' ||
-			navigatorLanguage === 'zh-hk' ||
-			navigatorLanguage === 'zh-mo' ||
-			navigatorLanguage === 'zh-cht' ||
-			navigatorLanguage === 'zh-cht-cn' ||
-			navigatorLanguage === 'zh-hant' ||
-			navigatorLanguage === 'zh-hant-cn'
-		) {
-			defaultLanguage = 'zh-CN';
-		} else {
-			defaultLanguage = 'en-US';
-		}
-		props.setCurrentLocale(defaultLanguage);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
-
 	function handleMenuClick(e) {
 		const newLocale = e.key;
 		props.setCurrentLocale(newLocale);

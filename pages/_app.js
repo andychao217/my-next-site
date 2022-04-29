@@ -10,6 +10,8 @@ import TabBarMobile from '../components/tabBarMobile';
 import NavBarMobile from '../components/navBarMobile';
 import langData from '/public/data/lang.json';
 
+export const config = { amp: true };
+
 const initialLocaleMessage = {
 	'en-US': {
 		hello: '你好',
@@ -29,6 +31,7 @@ export default function MyApp({ Component, pageProps }) {
 	const [isMobilePlatform, setIsMobilePlatform] = useState(false);
 	const [localeMessage, setLocaleMessage] = useState(initialLocaleMessage);
 	const router = useRouter();
+
 	useEffect(() => {
 		router.push('about');
 		isMobile();
@@ -60,7 +63,7 @@ export default function MyApp({ Component, pageProps }) {
 							name='keywords'
 							content='HTML,JavaScript,React,Vue.js,Coder,Programme,Software,Front-End,Engineer,Andy Chao,赵庆,andychao217'
 						></meta>
-						<meta name='viewport' content='width=device-width, initial-scale=1.0'></meta>
+						{/* <meta name='viewport' content='width=device-width, initial-scale=1.0'></meta> */}
 						<meta name='apple-mobile-web-app-capable' content='yes' />
 						<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
 						<meta name='apple-mobile-web-app-title' content='Andy Chao'></meta>
@@ -99,7 +102,7 @@ export default function MyApp({ Component, pageProps }) {
 							<Content style={{ padding: '0 50px', marginTop: '66px' }}>
 								<Breadcrumbs currentMenu={currentMenu} />
 								<div style={{ padding: '0px' }}>
-									<Component {...pageProps} isMobilePlatform={isMobilePlatform} />
+									<Component {...pageProps} currentLocale={currentLocale} isMobilePlatform={isMobilePlatform} />
 								</div>
 							</Content>
 							<FooterLayout currentLocale={currentLocale} />

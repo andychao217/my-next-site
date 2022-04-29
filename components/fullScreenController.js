@@ -42,7 +42,7 @@ export default function FullScreenController(props) {
 	}
 
 	return (
-		<Tooltip placement='bottom' title={<FormattedMessage id={isFullScreen ? 'fullScreenExit' : 'fullScreen'} />}>
+		<Tooltip placement='bottom' title={<FormattedMessage id={isFullScreen ? 'fullscreenExit' : 'fullscreen'} />}>
 			<Button
 				size='middle'
 				onClick={fullScreenControl}
