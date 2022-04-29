@@ -13,7 +13,7 @@ export async function getStaticProps(ctx) {
 	};
 }
 
-export default function Home(props) {
+export default function TimeLine(props) {
 	const [activeKey, setActiveKey] = useState('work');
 	const onChangeTab = (key) => {
 		if (key && key !== activeKey) {
