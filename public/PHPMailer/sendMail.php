@@ -23,11 +23,11 @@ if($_POST) {
     }
     // Check Message
     if (strlen($contact_message) < 15) {
-        $error['message'] = "请输入您的信息，至少包含15个字。";
+        $error['message'] = "请输入您的信息, 至少包含15个字。";
     }
     // Subject
-    if ($subject == '') { 
-        $subject = "有人找你"; 
+    if ($subject == '') {
+        $subject = "有人找你";
     }
     // Set Message
     $message .= "姓名： " . $name . "<br />";
@@ -55,24 +55,24 @@ if($_POST) {
             $mail->Password = 'fxapmgivnveibcdd';        // SMTP 密码  部分邮箱是授权码(例如163邮箱)
             $mail->SMTPSecure = 'ssl';                   // 允许 TLS 或者ssl协议
             $mail->Port = 465;                           // 服务器端口 25 或者465 具体要看邮箱服务器支持
-        
+
             $mail->setFrom($siteOwnersEmail, $name);  //发件人
             $mail->addAddress($siteOwnersEmail, 'Andy Chao');  // 收件人
             //$mail->addAddress('ellen@example.com');  // 可添加多个收件人
             $mail->addReplyTo($email, $name); //回复的时候回复给哪个邮箱 建议和发件人一致
             //$mail->addCC('cc@example.com');                    //抄送
             //$mail->addBCC('bcc@example.com');                    //密送
-        
+
             //发送附件
             // $mail->addAttachment('../xy.zip');         // 添加附件
             // $mail->addAttachment('../thumb-1.jpg', 'new.jpg');    // 发送附件并且重命名
-        
+
             //Content
             $mail->isHTML(true);                                  // 是否以HTML文档格式发送  发送后客户端可直接显示对应HTML内容
             $mail->Subject = $subject. ' '. date('Y-m-d H:i:s');
             $mail->Body    = '<div>'. $message. '</div>'. ' '. date('Y-m-d H:i:s');
             $mail->AltBody = $message;
-        
+
             $mail->send();
             echo 'OK';
         } catch (Exception $e) {
@@ -80,10 +80,10 @@ if($_POST) {
         }
         // ini_set("sendmail_from", $siteOwnersEmail); // for windows server
         // $mail = mail($siteOwnersEmail, $subject, $message, $headers);
-        // if ($mail) { 
-        //     echo "OK"; 
-        // } else { 
-        //     echo "有错误，请重试"; 
+        // if ($mail) {
+        //     echo "OK";
+        // } else {
+        //     echo "有错误，请重试";
         // }
     }  else {
         $response = (isset($error['name'])) ? $error['name'] . "<br /> \n" : null;

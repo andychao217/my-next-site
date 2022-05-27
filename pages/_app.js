@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import Head from 'next/head';
-import { IntlProvider } from 'react-intl'; /* react-intl imports */
-import { useRouter } from 'next/router';
+import { IntlProvider } from 'react-intl';
 import { Layout } from 'antd';
 import Breadcrumbs from '../components/breadcrumbs';
 import HeaderLayout from '../components/headerLayout';
@@ -9,8 +8,6 @@ import FooterLayout from '../components/footerLayout';
 import TabBarMobile from '../components/tabBarMobile';
 import NavBarMobile from '../components/navBarMobile';
 import langData from '/public/data/lang.json';
-
-export const config = { amp: true };
 
 const initialLocaleMessage = {
 	'en-US': {
@@ -30,10 +27,8 @@ export default function MyApp({ Component, pageProps }) {
 	const [currentMenu, setCurrentMenu] = useState('about');
 	const [isMobilePlatform, setIsMobilePlatform] = useState(false);
 	const [localeMessage, setLocaleMessage] = useState(initialLocaleMessage);
-	const router = useRouter();
 
 	useEffect(() => {
-		router.push('about');
 		isMobile();
 		const getLangData = async () => {
 			let res = await langData;

@@ -1,15 +1,24 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { Form, Input, Button, Dialog, TextArea } from 'antd-mobile';
 import { Card } from 'antd';
 import { FormattedMessage } from 'react-intl';
+import axios from 'axios';
 
 export default function Home(props) {
 	const placeholderTxt = props.currentLocale === 'en-US' ? 'Please input' : '请输入';
 
-	const onFinish = (values) => {
-		Dialog.alert({
-			content: <pre>{JSON.stringify(values, null, 2)}</pre>,
-		});
+	const onFinish = async (values) => {
+		try {
+			const res = await axios.get(
+				`/public/PHPMailer/sendMail.php?contactName=${values.name}&contactEmail=${values.email}&contactSubject=${values.subject}&contactMessage=${values.message}`,
+			);
+			Dialog.alert({
+				content: <pre>{<FormattedMessage id='sendSuccess' />}</pre>,
+				//sendFailed
+			});
+		} catch (e) {
+			console.log('e', e);
+		}
 	};
 
 	const getContactForm = () => {
